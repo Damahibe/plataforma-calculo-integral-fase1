@@ -1,85 +1,79 @@
 # Plataforma de Cálculo Integral y Modelado Geométrico
 
-Plataforma interactiva desarrollada para el análisis y evaluación de Cálculo Integral en el programa de Tecnología en Desarrollo de Software (Universidad Tecnológica de Pereira). El proyecto articula métodos numéricos, integración analítica, cálculo de áreas y volúmenes de sólidos tridimensionales mediante formulación rigurosa, desarrollo analítico y visualizaciones interactivas en 2D y 3D.
-
-> **Nota:** La resolución manual sigue siendo indispensable. Esta plataforma corresponde al componente de software, visualización y análisis computacional.
+Aplicación web interactiva para el análisis matemático, métodos numéricos de integración, resolución analítica paso a paso y modelado geométrico en 2D y 3D.
 
 ---
 
-## Módulos Desarrollados (14 de 14)
+## Características Principales
 
-Todos los 14 módulos se encuentran completamente implementados y funcionales:
-
-| Módulo | Tema | Enfoque y Contenido | Estado |
-|---:|---|---|:---:|
-| 1 | Sumas de Riemann | Aproximaciones izquierda, derecha y punto medio con rectángulos | **Completo** |
-| 2 | Regla del Trapecio | Integración numérica aproximando curvas con segmentos lineales | **Completo** |
-| 3 | Regla del Punto Medio | Evaluación en centros de subintervalos para curvas suaves | **Completo** |
-| 4 | Regla de Simpson | Ponderación parabólica con número de intervalos par | **Completo** |
-| 5 | Integral definida y área | Teorema Fundamental del Cálculo y área bajo la curva | **Completo** |
-| 6 | Integración directa | Antiderivadas polinomiales, racionales y radicales | **Completo** |
-| 7 | Integración Trigonométrica | Potencias impares/pares de senos y cosenos (\(\int \operatorname{sen}^3(2x)\cos^4(2x)dx\)) | **Completo** |
-| 8 | Sustitución Trigonométrica | Formas radicales (\(\sqrt{a^2-x^2}, \sqrt{x^2+a^2}\)) con 5 ejercicios del taller | **Completo** |
-| 9 | Sustitución Universal | Transformación de Weierstrass (\(z = \tan(x/2)\)) con 6 ejercicios resueltos | **Completo** |
-| 10 | Áreas de Regiones Planas | Integración respecto a \(x\) y respecto a \(y\), intersecciones y simetría | **Completo** |
-| 11 | Sólidos con Sección Conocida | Secciones perpendiculares equiláteras y cuadradas con **visualizador 3D** | **Completo** |
-| 12 | Sólidos de Revolución · Discos | Rotación de \(y = 2-x^2\) alrededor de \(y = 1\) con **gráfico 3D rotatorio** | **Completo** |
-| 13 | Sólidos de Revolución · Arandelas | Rotación de \(y = 4-x^2\) alrededor de \(y = 7\) con hueco interior en 3D | **Completo** |
-| 14 | Sólidos de Revolución · Capas | Método de cascarones cilíndricos con giro en torno al eje vertical \(x = 3\) | **Completo** |
+- **14 Módulos Interactivos:** Cobertura desde aproximaciones numéricas básicas hasta sólidos de revolución tridimensionales.
+- **Modo Personalizado en Tiempo Real:** Permite modificar funciones, coeficientes, límites de integración y ejes de rotación para recalcular y visualizar ejemplos propios de manera instantánea.
+- **Modelado 3D Interactivo:** Gráficos tridimensionales rotables y escalables mediante WebGL (Plotly.js) para secciones transversales conocidas, discos, arandelas y capas cilíndricas.
+- **Formulación Tipográfica Rigurosa:** Renderizado matemático de alta fidelidad con KaTeX para todas las demostraciones analíticas.
+- **Arquitectura Ligera y Modular:** Frontend basado en estándares web nativos sin dependencias de compilación, optimizado para ejecución local o despliegue estático.
 
 ---
 
-## Funcionalidades Principales
+## Módulos de la Aplicación
 
-- **Cobertura completa del taller y parcial (Docier Marino Ceballos):** Cada módulo incluye los enunciados exactos, demostraciones algebraicas paso a paso y resultados analíticos finales.
-- **Comandos GeoGebra 2D y 3D:** Códigos listos para copiar y ejecutar en GeoGebra Classic / GeoGebra 3D (`Curva`, `Superficie`, `IntegralEntre`, etc.).
-- **Visualizadores 3D interactivos:** Superficies tridimensionales rotables en tiempo real generadas con Plotly (WebGL) para secciones transversales y sólidos de revolución (Discos, Arandelas, Capas Cilíndricas).
-- **Renderizado de fórmulas con KaTeX:** Notación matemática tipográfica de alta fidelidad.
-- **Diseño responsive con modo oscuro:** Adaptado a pantallas móviles, tabletas y ordenadores de escritorio.
+| # | Módulo | Descripción / Capacidades | Visualización |
+|:---:|---|---|:---:|
+| **1** | **Sumas de Riemann** | Aproximaciones por extremos y punto medio con número variable de rectángulos \(n\). | 2D Dinámico |
+| **2** | **Regla del Trapecio** | Integración numérica aproximando curvas con segmentos lineales. | 2D Dinámico |
+| **3** | **Regla del Punto Medio** | Evaluación en centros de subintervalos para curvas suaves. | 2D Dinámico |
+| **4** | **Regla de Simpson** | Ponderación parabólica de alta precisión para subintervalos pares. | 2D Dinámico |
+| **5** | **Integral Definida y Área** | Teorema Fundamental del Cálculo y cálculo de áreas bajo la curva. | 2D Sombreado |
+| **6** | **Integración Directa** | Comparación gráfica interactiva entre funciones elementales y sus antiderivadas. | 2D Doble Curva |
+| **7** | **Integración Trigonométrica** | Resolución analítica de potencias \(\operatorname{sen}^m(kx)\cos^n(kx)\) y personalizador de exponentes. | 2D + Cálculo |
+| **8** | **Sustitución Trigonométrica** | Transformaciones de formas radicales (\(\sqrt{a^2-x^2}\), \(\sqrt{x^2+a^2}\)) con generador de raíces. | 2D Comparativo |
+| **9** | **Sustitución Universal** | Transformación de Weierstrass (\(z = \tan(x/2)\)) con calculadora de coeficientes propios. | 2D Funcional |
+| **10** | **Áreas de Regiones Planas** | Delimitación de regiones e integración respecto a \(x\) y respecto a \(y\). | 2D Región |
+| **11** | **Sólidos con Sección Conocida** | Modelado de volúmenes con secciones equiláteras o circulares perpendiculares a la base. | **3D Superficie** |
+| **12** | **Sólidos de Revolución · Discos** | Generación de sólidos continuos mediante rotación alrededor de ejes horizontales. | **3D Rotatorio** |
+| **13** | **Sólidos de Revolución · Arandelas** | Modelado de sólidos con cavidad interna mediante rotación con respecto a ejes externos. | **3D Doble Capa** |
+| **14** | **Sólidos de Revolución · Capas** | Método de cascarones cilíndricos paralelos a un eje de revolución vertical. | **3D Cascarón** |
 
 ---
 
-## Arquitectura del Proyecto
+## Tecnologías
+
+- **HTML5 & CSS3:** Arquitectura semántica, variables CSS para modo oscuro y diseño responsive.
+- **JavaScript (ES6+):** Motor de cálculo numérico, derivación analítica y parametrización de superficies.
+- **Plotly.js (WebGL):** Renderizado de superficies tridimensionales y gráficos analíticos interactivos.
+- **KaTeX:** Renderizado rápido de expresiones matemáticas LaTeX.
+
+---
+
+## Estructura del Proyecto
 
 ```text
 plataforma-calculo-integral-fase1/
 ├─ dist/
 │  ├─ index.html                 # Interfaz principal unificada
-│  ├─ styles.css                 # Estilos en modo oscuro, cajas GeoGebra y diseño responsive
-│  ├─ app.js                     # Controlador general, cálculos, lógica analítica y visualizaciones 2D/3D
+│  ├─ styles.css                 # Estilos en modo oscuro y layout responsive
+│  ├─ app.js                     # Motor de cálculo, rutas y renderizado 2D/3D
 │  └─ modulos/
-│     ├─ modulo-1/index.html     # Ruta directa Módulo 1 (Sumas de Riemann)
+│     ├─ modulo-1/index.html     # Ruta directa Módulo 1
 │     ├─ ...
-│     └─ modulo-14/index.html    # Ruta directa Módulo 14 (Capas Cilíndricas)
+│     └─ modulo-14/index.html    # Ruta directa Módulo 14
 ├─ .openai/hosting.json          # Configuración de sitio estático
 └─ README.md                     # Documentación técnica
 ```
 
 ---
 
-## Tecnologías Utilizadas
-
-| Herramienta | Aplicación |
-|---|---|
-| HTML5 / CSS3 | Interfaz semántica, layout responsive y diseño moderno |
-| JavaScript (ES6+) | Lógica de cálculo, transformaciones paramétricas y parametrización de superficies 3D |
-| Plotly.js | Renderizado de gráficas interactivas 2D y superficies 3D (WebGL) |
-| KaTeX | Renderizado dinámico de fórmulas matemáticas y demostraciones |
-| Git & GitHub | Control de versiones y despliegue continuo en GitHub Pages |
-
----
-
 ## Ejecución Local
 
-1. Abre esta carpeta en Visual Studio Code.
-2. Inicia con la extensión **Live Server** abriendo el archivo `dist/index.html`.
-3. Navega por los 14 módulos directamente desde el menú lateral o seleccionando cada tema.
-
----
-
-## Despliegue en GitHub Pages
-
-1. Sube los cambios a la rama principal (`main`).
-2. En GitHub ve a **Settings → Pages**.
-3. Selecciona la rama `main` y la carpeta `/dist`.
-4. La plataforma quedará pública automáticamente en la URL proporcionada por GitHub.
+1. Clona o descarga el repositorio:
+   ```bash
+   git clone https://github.com/Damahibe/plataforma-calculo-integral-fase1.git
+   ```
+2. Inicia un servidor local en el directorio `dist`:
+   ```bash
+   python3 -m http.server 8080 --directory dist
+   ```
+3. Abre en tu navegador:
+   ```text
+   http://localhost:8080
+   ```
+   *(También compatible directamente con la extensión **Live Server** de VS Code).*
