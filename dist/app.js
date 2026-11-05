@@ -169,11 +169,6 @@ function trig() {
               \\(= -\\frac{1}{2} \\left[ \\frac{u^5}{5} - \\frac{u^7}{7} \\right] + C = -\\frac{\\cos^5(2x)}{10} + \\frac{\\cos^7(2x)}{14} + C\\)
             </li>
           </ol>
-          <div class="geogebra-box">
-            <span class="title">Comandos GeoGebra</span>
-            <code>f(x) = (sin(2x))^3 * (cos(2x))^4</code>
-            <code>F(x) = -(cos(2x))^5 / 10 + (cos(2x))^7 / 14</code>
-          </div>
         </div>
       </article>
 
@@ -227,11 +222,6 @@ function trig() {
         <h3>Análisis de tu ejemplo personalizado</h3>
         <p>Configuración actual: <strong>Potencia del seno:</strong> \\(m = ${m}\\), <strong>Potencia del coseno:</strong> \\(n = ${n}\\), <strong>Frecuencia:</strong> \\(k = ${k}\\).</p>
         <p>${m % 2 !== 0 ? '💡 Como la potencia del seno es impar, se separa \\(\\operatorname{sen}(' + k + 'x)\\) y se usa \\(\\operatorname{sen}^2 = 1 - \\cos^2\\) con sustitución \\(u = \\cos(' + k + 'x)\\).' : n % 2 !== 0 ? '💡 Como la potencia del coseno es impar, se separa \\(\\cos(' + k + 'x)\\) y se usa \\(\\cos^2 = 1 - \\operatorname{sen}^2\\) con \\(u = \\operatorname{sen}(' + k + 'x)\\).' : '💡 Ambas potencias son pares: se recomienda usar identidades de ángulo medio \\(\\operatorname{sen}^2(u) = \\frac{1-\\cos(2u)}{2}\\) y \\(\\cos^2(u) = \\frac{1+\\cos(2u)}{2}\\).'}</p>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra para tu ejemplo</span>
-          <code>f(x) = (sin(${k}*x))^${m} * (cos(${k}*x))^${n}</code>
-          <code>Área = Integral(f, ${a}, ${b})</code>
-        </div>
       `;
     } else {
       $('#trigTitle').textContent = 'Demostración de Integral Trigonométrica';
@@ -244,15 +234,9 @@ function trig() {
           <li><strong>Sustitución simple:</strong> Sea \\(u = \\cos(2x) \\implies -\\frac{du}{2} = \\operatorname{sen}(2x) dx\\)</li>
           <li><strong>Integrar:</strong> \\(-\\frac{1}{2} \\left[ \\frac{u^5}{5} - \\frac{u^7}{7} \\right] + C = -\\frac{\\cos^5(2x)}{10} + \\frac{\\cos^7(2x)}{14} + C\\)</li>
         </ol>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra</span>
-          <code>f(x) = (sin(2x))^3 * (cos(2x))^4</code>
-          <code>F(x) = -(cos(2x))^5 / 10 + (cos(2x))^7 / 14</code>
-        </div>
       `;
     }
 
-    // Integral numérica en [a, b] por Simpson 100 pasos
     let nSteps = 100, h = (b - a) / nSteps;
     let sum = fTrig(a) + fTrig(b);
     for (let i = 1; i < nSteps; i++) {
@@ -298,7 +282,6 @@ function trigsub() {
         '<strong>Simplificar e integrar:</strong> \\(\\int \\frac{2\\cos\\theta d\\theta}{8\\cos^3\\theta} = \\frac{1}{4}\\int \\sec^2\\theta d\\theta = \\frac{1}{4}\\tan\\theta + C\\).',
         '<strong>Retorno a variable original x:</strong> Como \\(\\operatorname{sen}\\theta = x/2\\), por triángulo rectángulo el cateto adyacente es \\(\\sqrt{4-x^2}\\), luego \\(\\tan\\theta = \\frac{x}{\\sqrt{4-x^2}}\\). Resultado final: \\(\\frac{x}{4\\sqrt{4-x^2}} + C\\).'
       ],
-      geogebra: ['f(x) = 1 / (4 - x^2)^(3/2)', 'F(x) = x / (4 * sqrt(4 - x^2))'],
       f: x => 1 / Math.pow(4 - x * x, 1.5),
       F: x => x / (4 * Math.sqrt(4 - x * x)),
       range: [-1.8, 1.8]
@@ -312,7 +295,6 @@ function trigsub() {
         '<strong>Simplificar e integrar:</strong> \\(\\int \\frac{5\\cos\\theta}{5\\operatorname{sen}\\theta}(5\\cos\\theta d\\theta) = 5\\int \\frac{\\cos^2\\theta}{\\operatorname{sen}\\theta} d\\theta = 5\\int (\\csc\\theta - \\operatorname{sen}\\theta) d\\theta = 5\\ln|\\csc\\theta - \\cot\\theta| + 5\\cos\\theta + C\\).',
         '<strong>Retornar a x:</strong> Con \\(\\operatorname{sen}\\theta = x/5\\), \\(\\csc\\theta = 5/x\\), \\(\\cot\\theta = \\frac{\\sqrt{25-x^2}}{x}\\), y \\(5\\cos\\theta = \\sqrt{25-x^2}\\).'
       ],
-      geogebra: ['f(x) = sqrt(25 - x^2) / x', 'F(x) = 5 * ln(abs((5 - sqrt(25 - x^2)) / x)) + sqrt(25 - x^2)'],
       f: x => Math.sqrt(25 - x * x) / x,
       F: x => 5 * Math.log(Math.abs((5 - Math.sqrt(25 - x * x)) / x)) + Math.sqrt(25 - x * x),
       range: [0.3, 4.8]
@@ -326,7 +308,6 @@ function trigsub() {
         '<strong>Simplificar e integrar:</strong> \\(\\int \\frac{a\\cos\\theta d\\theta}{(a^2\\operatorname{sen}^2\\theta)(a\\cos\\theta)} = \\frac{1}{a^2}\\int \\csc^2\\theta d\\theta = -\\frac{1}{a^2}\\cot\\theta + C\\).',
         '<strong>Retorno a x:</strong> Como \\(\\operatorname{sen}\\theta = x/a\\), \\(\\cot\\theta = \\frac{\\sqrt{a^2-x^2}}{x}\\). Con \\(a = 3\\): \\(-\\frac{\\sqrt{9-x^2}}{9x} + C\\).'
       ],
-      geogebra: ['a = 3', 'f(x) = 1 / (x^2 * sqrt(a^2 - x^2))', 'F(x) = -sqrt(a^2 - x^2) / (a^2 * x)'],
       f: x => 1 / (x * x * Math.sqrt(9 - x * x)),
       F: x => -Math.sqrt(9 - x * x) / (9 * x),
       range: [0.4, 2.8]
@@ -340,7 +321,6 @@ function trigsub() {
         '<strong>Simplificar e integrar:</strong> \\(\\int (2\\sec\\theta)(2\\sec^2\\theta d\\theta) = 4\\int \\sec^3\\theta d\\theta = 2\\sec\\theta\\tan\\theta + 2\\ln|\\sec\\theta + \\tan\\theta| + C_1\\).',
         '<strong>Retornar a x:</strong> Reemplazando \\(\\tan\\theta = x/2\\) y \\(\\sec\\theta = \\frac{\\sqrt{x^2+4}}{2}\\).'
       ],
-      geogebra: ['f(x) = sqrt(x^2 + 4)', 'F(x) = (x * sqrt(x^2 + 4)) / 2 + 2 * ln(x + sqrt(x^2 + 4))'],
       f: x => Math.sqrt(x * x + 4),
       F: x => (x * Math.sqrt(x * x + 4)) / 2 + 2 * Math.log(x + Math.sqrt(x * x + 4)),
       range: [-4, 4]
@@ -354,7 +334,6 @@ function trigsub() {
         '<strong>Simplificar e integrar:</strong> \\(\\int \\frac{(a^2\\operatorname{sen}^2\\theta)(a\\cos\\theta d\\theta)}{a^3\\cos^3\\theta} = \\int \\tan^2\\theta d\\theta = \\tan\\theta - \\theta + C\\).',
         '<strong>Retornar a x:</strong> \\(\\theta = \\operatorname{arcsen}(x/a)\\) y \\(\\tan\\theta = \\frac{x}{\\sqrt{a^2-x^2}}\\).'
       ],
-      geogebra: ['a = 3', 'f(x) = x^2 / (a^2 - x^2)^(3/2)', 'F(x) = x / sqrt(a^2 - x^2) - asin(x / a)'],
       f: x => (x * x) / Math.pow(9 - x * x, 1.5),
       F: x => x / Math.sqrt(9 - x * x) - Math.asin(x / 3),
       range: [-2.6, 2.6]
@@ -370,7 +349,6 @@ function trigsub() {
         <div id="exStepsBox">
           <h3>Desarrollo analítico completo</h3>
           <ol class="steps" id="exSteps"></ol>
-          <div class="geogebra-box" id="exGeogebra"></div>
         </div>
       </article>
 
@@ -425,11 +403,6 @@ function trigsub() {
         <h3>Procedimiento para tu ejemplo</h3>
         <p><strong>Sustitución recomendada:</strong> ${isMinus ? `\\(x = ${aVal}\\operatorname{sen}\\theta \\implies dx = ${aVal}\\cos\\theta d\\theta\\), con \\(\\sqrt{${aVal * aVal} - x^2} = ${aVal}\\cos\\theta\\).` : `\\(x = ${aVal}\\tan\\theta \\implies dx = ${aVal}\\sec^2\\theta d\\theta\\), con \\(\\sqrt{x^2 + ${aVal * aVal}} = ${aVal}\\sec\\theta\\).`}</p>
         <p><strong>Triángulo de referencia:</strong> ${isMinus ? `Cateto opuesto = \\(x\\), Hipotenusa = \\(${aVal}\\), Cateto adyacente = \\(\\sqrt{${aVal * aVal} - x^2}\\).` : `Cateto opuesto = \\(x\\), Cateto adyacente = \\(${aVal}\\), Hipotenusa = \\(\\sqrt{x^2 + ${aVal * aVal}}\\).`}</p>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra para tu ejemplo</span>
-          <code>f(x) = ${isMinus ? `sqrt(${aVal * aVal} - x^2)` : `sqrt(x^2 + ${aVal * aVal})`}</code>
-          <code>F(x) = Integral(f)</code>
-        </div>
       `;
       $('#exRes').textContent = `Graficando tu radical con parámetro a = ${aVal}`;
 
@@ -459,10 +432,6 @@ function trigsub() {
       $('#exStepsBox').innerHTML = `
         <h3>Desarrollo analítico completo</h3>
         <ol class="steps">${item.steps.map(s => `<li>${s}</li>`).join('')}</ol>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra</span>
-          ${item.geogebra.map(c => `<code>${c}</code>`).join('')}
-        </div>
       `;
       $('#exRes').textContent = `Gráfica comparativa de f(x) y antiderivada F(x)`;
 
@@ -500,7 +469,6 @@ function universal() {
         '<strong>Sustituir y completar el cuadrado:</strong> Con \\(\\operatorname{sen}x = \\frac{2z}{1+z^2}\\) y \\(dx = \\frac{2dz}{1+z^2}\\):<br>\\(\\int \\frac{2dz}{z^2 - 4z + 1} = 2\\int \\frac{dz}{(z-2)^2 - (\\sqrt{3})^2}\\).',
         '<strong>Integrar y retornar a x:</strong> \\(\\frac{\\sqrt{3}}{3}\\ln\\left|\\frac{\\tan(x/2) - 2 - \\sqrt{3}}{\\tan(x/2) - 2 + \\sqrt{3}}\\right| + C\\).'
       ],
-      geogebra: ['f(x) = 1 / (1 - 2*sin(x))', 'F(x) = (sqrt(3)/3) * ln(abs((tan(x/2) - 2 - sqrt(3)) / (tan(x/2) - 2 + sqrt(3))))'],
       f: x => 1 / (1 - 2 * Math.sin(x)),
       F: x => (Math.sqrt(3) / 3) * Math.log(Math.abs((Math.tan(x / 2) - 2 - Math.sqrt(3)) / (Math.tan(x / 2) - 2 + Math.sqrt(3)))),
       range: [-1.2, 0.4]
@@ -513,7 +481,6 @@ function universal() {
         '<strong>Sustituir y simplificar:</strong> Con \\(\\cos x = \\frac{1-z^2}{1+z^2}\\):<br>\\(\\int \\frac{2dz}{2(1+z^2)-(1-z^2)} = \\int \\frac{2dz}{3z^2 + 1}\\).',
         '<strong>Integrar:</strong> \\(w = \\sqrt{3}z \\implies \\frac{2}{\\sqrt{3}}\\arctan\\left(\\sqrt{3}\\tan\\frac{x}{2}\\right) + C\\).'
       ],
-      geogebra: ['f(x) = 1 / (2 - cos(x))', 'F(x) = (2 / sqrt(3)) * atan(sqrt(3) * tan(x/2))'],
       f: x => 1 / (2 - Math.cos(x)),
       F: x => (2 / Math.sqrt(3)) * Math.atan(Math.sqrt(3) * Math.tan(x / 2)),
       range: [-3, 3]
@@ -526,7 +493,6 @@ function universal() {
         '<strong>Fracciones parciales en z:</strong> \\(\\int \\frac{2dz}{(3z+1)(z+3)} = \\int \\left(\\frac{3/4}{3z+1} - \\frac{1/4}{z+3}\\right) dz\\).',
         '<strong>Integrar:</strong> \\(\\frac{1}{4}\\ln\\left|\\frac{3\\tan(x/2)+1}{\\tan(x/2)+3}\\right| + C\\).'
       ],
-      geogebra: ['f(x) = 1 / (3 + 5*sin(x))', 'F(x) = (1/4) * ln(abs((3*tan(x/2) + 1) / (tan(x/2) + 3)))'],
       f: x => 1 / (3 + 5 * Math.sin(x)),
       F: x => 0.25 * Math.log(Math.abs((3 * Math.tan(x / 2) + 1) / (Math.tan(x / 2) + 3))),
       range: [-0.5, 2.5]
@@ -539,7 +505,6 @@ function universal() {
         '<strong>Sustituir y completar trinomio:</strong> \\(\\int \\frac{10dz}{(5z+3)^2 + 4^2}\\).',
         '<strong>Integrar:</strong> \\(\\frac{1}{2}\\arctan\\left(\\frac{3 + 5\\tan(x/2)}{4}\\right) + C\\).'
       ],
-      geogebra: ['f(x) = 1 / (5 + 3*sin(x))', 'F(x) = (1/2) * atan((3 + 5*tan(x/2)) / 4)'],
       f: x => 1 / (5 + 3 * Math.sin(x)),
       F: x => 0.5 * Math.atan((3 + 5 * Math.tan(x / 2)) / 4),
       range: [-3, 3]
@@ -552,7 +517,6 @@ function universal() {
         '<strong>Sustituir y simplificar denominador:</strong> \\(\\int \\frac{2dz}{2z - 2} = \\int \\frac{dz}{z-1}\\).',
         '<strong>Integrar:</strong> \\(\\ln\\left|\\tan(x/2) - 1\\right| + C\\).'
       ],
-      geogebra: ['f(x) = 1 / (sin(x) - cos(x) - 1)', 'F(x) = ln(abs(tan(x/2) - 1))'],
       f: x => 1 / (Math.sin(x) - Math.cos(x) - 1),
       F: x => Math.log(Math.abs(Math.tan(x / 2) - 1)),
       range: [-1.2, 1.4]
@@ -565,7 +529,6 @@ function universal() {
         '<strong>Reescribir denominador:</strong> \\(1 + \\operatorname{sen}^2 x = 2 - \\cos^2 x\\). Sustituir \\(u = \\cos x\\).',
         '<strong>Transformar a tan(x/2):</strong> \\(\\frac{\\sqrt{2}}{4}\\ln\\left|\\frac{\\tan^2(x/2) + 3 - 2\\sqrt{2}}{\\tan^2(x/2) + 3 + 2\\sqrt{2}}\\right| + C\\).'
       ],
-      geogebra: ['f(x) = sin(x) / (1 + (sin(x))^2)', 'F(x) = (sqrt(2)/4) * ln(abs(((tan(x/2))^2 + 3 - 2*sqrt(2)) / ((tan(x/2))^2 + 3 + 2*sqrt(2))))'],
       f: x => Math.sin(x) / (1 + Math.sin(x) * Math.sin(x)),
       F: x => (Math.sqrt(2) / 4) * Math.log(Math.abs((Math.pow(Math.tan(x / 2), 2) + 3 - 2 * Math.sqrt(2)) / (Math.pow(Math.tan(x / 2), 2) + 3 + 2 * Math.sqrt(2)))),
       range: [-2.8, 2.8]
@@ -584,7 +547,6 @@ function universal() {
         <div id="uStepsBox">
           <h3>Procedimiento detallado</h3>
           <ol class="steps" id="uSteps"></ol>
-          <div class="geogebra-box" id="uGeogebra"></div>
         </div>
       </article>
 
@@ -639,11 +601,6 @@ function universal() {
         <p>\\(${A} + ${B}\\left(\\frac{2z}{1+z^2}\\right) + ${C}\\left(\\frac{1-z^2}{1+z^2}\\right) = \\frac{(${A}-${C})z^2 + ${2 * B}z + (${A}+${C})}{1+z^2}\\)</p>
         <p>Multiplicando por \\(dx = \\frac{2dz}{1+z^2}\\), el integrando se transforma en:</p>
         <div class="formula">$$\\int \\frac{2 \\, dz}{${polyQuad}z^2 + ${polyLin}z + ${polyConst}}$$</div>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra para tu función</span>
-          <code>f(x) = 1 / (${A} + ${B}*sin(x) + ${C}*cos(x))</code>
-          <code>F(x) = Integral(f)</code>
-        </div>
       `;
       $('#uRes').textContent = `Visualizando f(x) con coeficientes personalizados`;
 
@@ -667,10 +624,6 @@ function universal() {
       $('#uStepsBox').innerHTML = `
         <h3>Procedimiento detallado</h3>
         <ol class="steps">${item.steps.map(s => `<li>${s}</li>`).join('')}</ol>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra</span>
-          ${item.geogebra.map(c => `<code>${c}</code>`).join('')}
-        </div>
       `;
       $('#uRes').textContent = `Gráfica interactiva del integrando y su solución analítica`;
 
@@ -708,7 +661,6 @@ function planearea() {
         '<strong>Intersecciones (con \\(y \\ge 0\\)):</strong> \\(\\sqrt{y} = 2 - y \\implies y = 1\\) (punto \\((1,1)\\)).',
         '<strong>Planteamiento respecto a y:</strong><br>\\(A = \\int_0^1 [(2 - y) - y^{1/2}] dy = \\left[ 2y - \\frac{y^2}{2} - \\frac{2}{3}y^{3/2} \\right]_0^1 = \\frac{5}{6} \\text{ u}^2\\).'
       ],
-      geogebra: ['f(x) = Si(x >= 0, x^2)', 'g(x) = 2 - x', 'Región: (y >= 0) && (x >= sqrt(y)) && (x <= 2 - y)'],
       plot: () => {
         let ys = Array.from({ length: 150 }, (_, i) => i / 149);
         let xRight = ys.map(y => 2 - y), xLeft = ys.map(y => Math.sqrt(y));
@@ -731,7 +683,6 @@ function planearea() {
         '<strong>Intersecciones:</strong> \\(y^2 = 2 - y^2 \\implies y = \\pm 1\\). Cortes en \\((1, -1)\\) y \\((1, 1)\\).',
         '<strong>Integración por simetría:</strong> \\(A = 2\\int_0^1 (2 - 2y^2) dy = 2\\left[ 2y - \\frac{2y^3}{3} \\right]_0^1 = \\frac{8}{3} \\text{ u}^2\\).'
       ],
-      geogebra: ['ec1: x = y^2', 'ec2: x = 2 - y^2', 'Región: y^2 <= x <= 2 - y^2'],
       plot: () => {
         let ys = Array.from({ length: 200 }, (_, i) => -1.3 + 2.6 * i / 199);
         let yBounded = Array.from({ length: 150 }, (_, i) => -1 + 2 * i / 149);
@@ -754,7 +705,6 @@ function planearea() {
         '<strong>Intersecciones:</strong> \\(x^2 = \\frac{2}{x^2+1} \\implies x = \\pm 1\\).',
         '<strong>Integración:</strong> \\(A = 2\\int_0^1 \\left(\\frac{2}{x^2+1} - x^2\\right) dx = \\pi - \\frac{2}{3} \\approx 2.4749 \\text{ u}^2\\).'
       ],
-      geogebra: ['f(x) = x^2', 'g(x) = 2 / (x^2 + 1)', 'Área = IntegralEntre(g, f, -1, 1)'],
       plot: () => {
         let xs = Array.from({ length: 200 }, (_, i) => -1.8 + 3.6 * i / 199);
         let xBounded = Array.from({ length: 150 }, (_, i) => -1 + 2 * i / 149);
@@ -777,7 +727,6 @@ function planearea() {
         '<strong>Intersecciones:</strong> \\(3y^2 = 3 \\implies y = \\pm 1\\).',
         '<strong>Integración:</strong> \\(A = 2\\int_0^1 (3 - 3y^2) dy = 2(3 - 1) = 4 \\text{ u}^2\\).'
       ],
-      geogebra: ['ec1: x = y^2', 'ec2: x = 3 - 2y^2', 'Región: y^2 <= x <= 3 - 2y^2'],
       plot: () => {
         let ys = Array.from({ length: 200 }, (_, i) => -1.4 + 2.8 * i / 199);
         let yBounded = Array.from({ length: 150 }, (_, i) => -1 + 2 * i / 149);
@@ -800,7 +749,6 @@ function planearea() {
         '<strong>Ecuación y simetría:</strong> \\(x^2 + y^2 = R^2\\). En 4 cuadrantes: \\(A = 4\\int_0^R \\sqrt{R^2 - x^2} dx\\).',
         '<strong>Sustitución trigonométrica:</strong> \\(x = R\\operatorname{sen}\\theta \\implies A = \\pi R^2 \\text{ u}^2\\).'
       ],
-      geogebra: ['R = 3', 'f(x) = sqrt(R^2 - x^2)', 'g(x) = -sqrt(R^2 - x^2)', 'Área = IntegralEntre(f, g, -R, R)'],
       plot: () => {
         let R = 3;
         let ts = Array.from({ length: 200 }, (_, i) => 2 * Math.PI * i / 199);
@@ -824,7 +772,6 @@ function planearea() {
         <div id="aStepsBox">
           <h3>Planteamiento analítico e integración</h3>
           <ol class="steps" id="aSteps"></ol>
-          <div class="geogebra-box" id="aGeogebra"></div>
         </div>
       </article>
 
@@ -874,12 +821,6 @@ function planearea() {
         <p><strong>Puntos de corte:</strong> \\(${H} - x^2 = ${C} \\implies x^2 = ${H - C} \\implies x = \\pm ${root.toFixed(2)}\\).</p>
         <p><strong>Planteamiento de la integral:</strong></p>
         <div class="formula">$$A = \\int_{-${root.toFixed(2)}}^{${root.toFixed(2)}} [(${H} - x^2) - ${C}] dx = 2\\int_0^{${root.toFixed(2)}} (${H - C} - x^2) dx = ${areaVal.toFixed(4)} \\text{ u}^2$$</div>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra para tu región</span>
-          <code>f(x) = ${H} - x^2</code>
-          <code>g(x) = ${C}</code>
-          <code>Área = IntegralEntre(f, g, -${root.toFixed(2)}, ${root.toFixed(2)})</code>
-        </div>
       `;
       $('#aRes').textContent = `Área exacta entre y = ${H} - x² e y = ${C}: ${areaVal.toFixed(4)} u²`;
 
@@ -905,10 +846,6 @@ function planearea() {
       $('#aStepsBox').innerHTML = `
         <h3>Planteamiento analítico e integración</h3>
         <ol class="steps">${item.steps.map(s => `<li>${s}</li>`).join('')}</ol>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra</span>
-          ${item.geogebra.map(c => `<code>${c}</code>`).join('')}
-        </div>
       `;
       $('#aRes').textContent = `Visualización geométrica de la región delimitada`;
 
@@ -943,10 +880,6 @@ function crosssection() {
         '<strong>Área transversal A(x):</strong> \\(A(x) = \\frac{\\sqrt{3}}{4}[L(x)]^2 = \\sqrt{3}(1 - x^2)\\).',
         '<strong>Cálculo del volumen:</strong> \\(V = 2\\sqrt{3}\\int_0^1 (1 - x^2) dx = \\frac{4\\sqrt{3}}{3} \\text{ u}^3\\).'
       ],
-      geogebra: [
-        'Curva(cos(t), sin(t), 0, t, 0, 2*pi)',
-        'Superficie(u, v*sqrt(1 - u^2), sqrt(3)*(1 - abs(v))*sqrt(1 - u^2), u, -1, 1, v, -1, 1)'
-      ],
       generate3D: () => {
         let nU = 35, nV = 35;
         let uVals = Array.from({ length: nU }, (_, i) => -0.99 + 1.98 * i / (nU - 1));
@@ -973,10 +906,6 @@ function crosssection() {
         '<strong>Límites:</strong> \\(1 - x^2/4 = 0 \\implies x \\in [0, 2]\\).',
         '<strong>Lado del cuadrado y área:</strong> \\(L(x) = 1 - x^2/4\\). \\(A(x) = 1 - x^2/2 + x^4/16\\).',
         '<strong>Cálculo del volumen:</strong> \\(V = \\int_0^2 (1 - x^2/2 + x^4/16) dx = \\frac{16}{15} \\text{ u}^3\\).'
-      ],
-      geogebra: [
-        'Curva(t, 1 - t^2/4, 0, t, 0, 2)',
-        'Superficie(u, v*(1 - u^2/4), 1 - u^2/4, u, 0, 2, v, 0, 1)'
       ],
       generate3D: () => {
         let nU = 35, nV = 35;
@@ -1008,7 +937,6 @@ function crosssection() {
         <div id="csStepsBox">
           <h3>Procedimiento y cálculo de volumen</h3>
           <ol class="steps" id="csSteps"></ol>
-          <div class="geogebra-box" id="csGeogebra"></div>
         </div>
       </article>
 
@@ -1064,11 +992,6 @@ function crosssection() {
         <p><strong>Base:</strong> Círculo \\(x^2 + y^2 = ${R * R}\\). Lado transversal: \\(L(x) = 2\\sqrt{${R * R} - x^2}\\).</p>
         <p><strong>Área transversal:</strong> ${isTri ? `\\(A(x) = \\frac{\\sqrt{3}}{4}L^2 = \\sqrt{3}(${R * R} - x^2)\\)` : `\\(A(x) = \\frac{\\pi}{8}L^2 = \\frac{\\pi}{2}(${R * R} - x^2)\\)`}.</p>
         <div class="formula">$$V = \\int_{-${R}}^{${R}} A(x) dx = ${vol.toFixed(4)} \\text{ u}^3$$</div>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra para tu modelo</span>
-          <code>Curva(${R}*cos(t), ${R}*sin(t), 0, t, 0, 2*pi)</code>
-          <code>Superficie(u, v*sqrt(${R * R} - u^2), ${isTri ? 'sqrt(3)*(1-abs(v))' : 'sqrt(1-v^2)'}*sqrt(${R * R} - u^2), u, -${R}, ${R}, v, -1, 1)</code>
-        </div>
       `;
       $('#csRes').textContent = `Renderizando modelo 3D con R = ${R}`;
 
@@ -1106,10 +1029,6 @@ function crosssection() {
       $('#csStepsBox').innerHTML = `
         <h3>Procedimiento y cálculo de volumen</h3>
         <ol class="steps">${item.steps.map(s => `<li>${s}</li>`).join('')}</ol>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra (Vista 3D)</span>
-          ${item.geogebra.map(c => `<code>${c}</code>`).join('')}
-        </div>
       `;
       $('#csRes').textContent = `Renderizando sólido geométrico del parcial`;
 
@@ -1150,11 +1069,6 @@ function disks() {
             <li><strong>Radio respecto al eje:</strong> \\(r(x) = (2 - x^2) - 1 = 1 - x^2\\).</li>
             <li><strong>Cálculo del volumen:</strong> \\(V = 2\\pi \\int_0^1 (1 - 2x^2 + x^4) dx = \\frac{16\\pi}{15} \\text{ u}^3\\).</li>
           </ol>
-          <div class="geogebra-box">
-            <span class="title">Comandos GeoGebra (Vista 2D y 3D)</span>
-            <code>f(x) = Si(-1 <= x <= 1, 2 - x^2)</code>
-            <code>Superficie(u, 1 + (1 - u^2)*cos(v), (1 - u^2)*sin(v), u, -1, 1, v, 0, 2*pi)</code>
-          </div>
         </div>
       </article>
 
@@ -1195,7 +1109,6 @@ function disks() {
     let diff = Math.max(0.1, H - y0);
     let root = Math.sqrt(diff);
 
-    // V = pi int_{-root}^{root} (H - x² - y0)² dx = 2 pi int_0^{root} (diff - x²)² dx = 2 pi [diff² x - 2diff x³/3 + x⁵/5]_0^root
     let vol = 2 * Math.PI * (Math.pow(diff, 2) * root - (2 * diff * Math.pow(root, 3)) / 3 + Math.pow(root, 5) / 5);
 
     if (isCustom) {
@@ -1206,11 +1119,6 @@ function disks() {
         <p><strong>Cortes con el eje de giro:</strong> \\(${H} - x^2 = ${y0} \\implies x = \\pm ${root.toFixed(2)}\\).</p>
         <p><strong>Radio del disco:</strong> \\(r(x) = (${H} - x^2) - ${y0} = ${diff.toFixed(2)} - x^2\\).</p>
         <div class="formula">$$V = \\pi \\int_{-${root.toFixed(2)}}^{${root.toFixed(2)}} (${diff.toFixed(2)} - x^2)^2 dx = ${vol.toFixed(4)} \\text{ u}^3$$</div>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra para tu sólido</span>
-          <code>f(x) = Si(-${root.toFixed(2)} <= x <= ${root.toFixed(2)}, ${H} - x^2)</code>
-          <code>Superficie(u, ${y0} + (${diff.toFixed(2)} - u^2)*cos(v), (${diff.toFixed(2)} - u^2)*sin(v), u, -${root.toFixed(2)}, ${root.toFixed(2)}, v, 0, 2*pi)</code>
-        </div>
       `;
       $('#diskRes').textContent = `Volumen exacto generado: ${vol.toFixed(4)} u³`;
     } else {
@@ -1223,11 +1131,6 @@ function disks() {
           <li><strong>Radio respecto al eje:</strong> \\(r(x) = (2 - x^2) - 1 = 1 - x^2\\).</li>
           <li><strong>Cálculo del volumen:</strong> \\(V = 2\\pi \\int_0^1 (1 - 2x^2 + x^4) dx = \\frac{16\\pi}{15} \\text{ u}^3\\).</li>
         </ol>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra (Vista 2D y 3D)</span>
-          <code>f(x) = Si(-1 <= x <= 1, 2 - x^2)</code>
-          <code>Superficie(u, 1 + (1 - u^2)*cos(v), (1 - u^2)*sin(v), u, -1, 1, v, 0, 2*pi)</code>
-        </div>
       `;
       $('#diskRes').textContent = 'Sólido cerrado sin hueco interno (Método de Discos)';
     }
@@ -1289,12 +1192,6 @@ function washers() {
             <li><strong>Radios respecto a y = 7:</strong> \\(R_{ext} = 7 - 0 = 7\\), \\(r_{int} = 7 - (4 - x^2) = 3 + x^2\\).</li>
             <li><strong>Cálculo del volumen:</strong> \\(V = 2\\pi \\int_0^2 (40 - 6x^2 - x^4) dx = \\frac{576\\pi}{5} \\text{ u}^3\\).</li>
           </ol>
-          <div class="geogebra-box">
-            <span class="title">Comandos GeoGebra (Vista 2D y 3D)</span>
-            <code>f(x) = Si(-2 <= x <= 2, 4 - x^2)</code>
-            <code>Superficie(u, 7 - (3 + u^2)*cos(v), (3 + u^2)*sin(v), u, -2, 2, v, 0, 2*pi)</code>
-            <code>Superficie(u, 7 - 7*cos(v), 7*sin(v), u, -2, 2, v, 0, 2*pi)</code>
-          </div>
         </div>
       </article>
 
@@ -1330,11 +1227,8 @@ function washers() {
     $('#washCustomControls').style.display = isCustom ? 'flex' : 'none';
 
     let yAxis = isCustom ? (+($('#wAxis').value) || 6) : 7;
-    // R_ext = yAxis; r_int = yAxis - (4 - x²) = (yAxis - 4) + x²
-    // Integrando = yAxis² - ((yAxis - 4) + x²)² = [8*yAxis - 16] - 2*(yAxis - 4)x² - x⁴
     let A = 8 * yAxis - 16;
     let B = 2 * (yAxis - 4);
-    // V = 2 pi [ A*2 - B*8/3 - 32/5 ]
     let vol = 2 * Math.PI * (A * 2 - (B * 8) / 3 - 32 / 5);
 
     if (isCustom) {
@@ -1345,12 +1239,6 @@ function washers() {
         <p><strong>Radio Exterior:</strong> \\(R_{ext}(x) = ${yAxis} - 0 = ${yAxis}\\).</p>
         <p><strong>Radio Interior:</strong> \\(r_{int}(x) = ${yAxis} - (4 - x^2) = ${yAxis - 4} + x^2\\).</p>
         <div class="formula">$$V = 2\\pi \\int_0^2 \\left[ ${yAxis}^2 - (${yAxis - 4} + x^2)^2 \\right] dx = ${vol.toFixed(4)} \\text{ u}^3$$</div>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra para tu arandela</span>
-          <code>EjeGiro: y = ${yAxis}</code>
-          <code>Superficie(u, ${yAxis} - (${yAxis - 4} + u^2)*cos(v), (${yAxis - 4} + u^2)*sin(v), u, -2, 2, v, 0, 2*pi)</code>
-          <code>Superficie(u, ${yAxis} - ${yAxis}*cos(v), ${yAxis}*sin(v), u, -2, 2, v, 0, 2*pi)</code>
-        </div>
       `;
       $('#washRes').textContent = `Volumen de la arandela con eje y = ${yAxis}: ${vol.toFixed(4)} u³`;
     } else {
@@ -1363,13 +1251,6 @@ function washers() {
           <li><strong>Radios respecto a y = 7:</strong> \\(R_{ext} = 7 - 0 = 7\\), \\(r_{int} = 7 - (4 - x^2) = 3 + x^2\\).</li>
           <li><strong>Cálculo del volumen:</strong> \\(V = 2\\pi \\int_0^2 (40 - 6x^2 - x^4) dx = \\frac{576\\pi}{5} \\text{ u}^3\\).</li>
         </ol>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra (Vista 2D y 3D)</span>
-          <code>f(x) = Si(-2 <= x <= 2, 4 - x^2)</code>
-          <code>EjeGiro: y = 7</code>
-          <code>Superficie(u, 7 - (3 + u^2)*cos(v), (3 + u^2)*sin(v), u, -2, 2, v, 0, 2*pi)</code>
-          <code>Superficie(u, 7 - 7*cos(v), 7*sin(v), u, -2, 2, v, 0, 2*pi)</code>
-        </div>
       `;
       $('#washRes').textContent = 'Doble superficie: externa e interna con hueco';
     }
@@ -1439,12 +1320,6 @@ function shells() {
             <li><strong>Elementos de la capa:</strong> Radio \\(r(x) = 3 - x\\), Altura \\(h(x) = 4 - x^2\\).</li>
             <li><strong>Cálculo del volumen:</strong> \\(V = 2\\pi \\int_{-2}^2 (3 - x)(4 - x^2) dx = 64\\pi \\text{ u}^3\\).</li>
           </ol>
-          <div class="geogebra-box">
-            <span class="title">Comandos GeoGebra (Vista 2D y 3D)</span>
-            <code>f(x) = Si(-2 <= x <= 2, 4 - x^2)</code>
-            <code>EjeGiro: x = 3</code>
-            <code>Superficie(3 - (3 - u)*cos(v), 4 - u^2, (3 - u)*sin(v), u, -2, 2, v, 0, 2*pi)</code>
-          </div>
         </div>
       </article>
 
@@ -1480,9 +1355,6 @@ function shells() {
     $('#shellCustomControls').style.display = isCustom ? 'flex' : 'none';
 
     let xAxis = isCustom ? (+($('#sAxis').value) || 4) : 3;
-    // V = 2pi int_{-2}^2 (xAxis - x)(4 - x²) dx
-    // Como el término x*(4 - x²) es impar y se integra de -2 a 2, da 0.
-    // Solo queda 2pi * xAxis * int_{-2}^2 (4 - x²) dx = 2pi * xAxis * (32/3)
     let vol = 2 * Math.PI * xAxis * (32 / 3);
 
     if (isCustom) {
@@ -1494,11 +1366,6 @@ function shells() {
         <p><strong>Altura de la capa cilíndrica:</strong> \\(h(x) = 4 - x^2\\).</p>
         <p>Por simetría, la integral del término impar se anula en \\([-2, 2]\\):</p>
         <div class="formula">$$V = 2\\pi \\int_{-2}^2 (${xAxis} - x)(4 - x^2) dx = 2\\pi (${xAxis}) \\int_{-2}^2 (4 - x^2) dx = \\frac{64\\pi (${xAxis})}{3} \\approx ${vol.toFixed(4)} \\text{ u}^3$$</div>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra para tu modelo</span>
-          <code>EjeGiro: x = ${xAxis}</code>
-          <code>Superficie(${xAxis} - (${xAxis} - u)*cos(v), 4 - u^2, (${xAxis} - u)*sin(v), u, -2, 2, v, 0, 2*pi)</code>
-        </div>
       `;
       $('#shellRes').textContent = `Volumen por capas con eje x = ${xAxis}: ${vol.toFixed(4)} u³`;
     } else {
@@ -1511,12 +1378,6 @@ function shells() {
           <li><strong>Elementos de la capa:</strong> Radio \\(r(x) = 3 - x\\), Altura \\(h(x) = 4 - x^2\\).</li>
           <li><strong>Cálculo del volumen:</strong> \\(V = 2\\pi \\int_{-2}^2 (3 - x)(4 - x^2) dx = 64\\pi \\text{ u}^3\\).</li>
         </ol>
-        <div class="geogebra-box">
-          <span class="title">Comandos GeoGebra (Vista 2D y 3D)</span>
-          <code>f(x) = Si(-2 <= x <= 2, 4 - x^2)</code>
-          <code>EjeGiro: x = 3</code>
-          <code>Superficie(3 - (3 - u)*cos(v), 4 - u^2, (3 - u)*sin(v), u, -2, 2, v, 0, 2*pi)</code>
-        </div>
       `;
       $('#shellRes').textContent = 'Sólido generado alrededor de x = 3';
     }
