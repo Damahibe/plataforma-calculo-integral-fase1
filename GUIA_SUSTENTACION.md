@@ -1,95 +1,85 @@
-# Guía de explicación y uso de la plataforma
+# Guía de Sustentación: Plataforma de Cálculo Integral (Hasta Sólidos de Revolución)
 
-Esta guía sirve para una exposición o video de sustentación de 5 a 10 minutos. El propósito no es leer cada texto de la pantalla, sino mostrar que se comprende la relación entre el cálculo integral y el software.
+Esta guía sirve como guion para una exposición o video de sustentación de 5 a 10 minutos. Su propósito es evidenciar el dominio tanto del **componente matemático** (Docier Marino Ceballos) como del **componente de desarrollo de software y visualización interactiva**.
 
-## Antes de iniciar
+---
 
-1. Abra el proyecto con Live Server desde Visual Studio Code.
-2. Use la dirección local que abre el navegador, no el archivo con ruta `file://`.
-3. Compruebe que haya conexión a internet, pues KaTeX y Plotly cargan las fórmulas y gráficas.
-4. Abra primero el módulo 1 para que la demostración comience con un ejemplo visible.
+## 1. Introducción y Contexto (1 minuto)
 
-## Recorrido recomendado para la exposición
+> *"Buenas tardes profesor y compañeros. Presento la plataforma interactiva de Cálculo Integral desarrollada para el programa de Tecnología en Desarrollo de Software. El proyecto cubre de manera integral los 14 módulos de la materia, desde los métodos numéricos de aproximación e integración directa, pasando por técnicas avanzadas de integración trigonométrica y universal, hasta el cálculo de áreas y el modelado tridimensional de sólidos de revolución."*
 
-### 1. Presentación de la plataforma — 30 segundos
+**Puntos a señalar en pantalla:**
+1. El encabezado con el distintivo **"Hasta Sólidos de Revolución"**.
+2. El menú lateral que contiene los **14 módulos completamente desarrollados**.
+3. La coherencia estética en modo oscuro, renderizado de fórmulas con **KaTeX** y gráficos dinámicos con **Plotly**.
 
-Puede decir:
+---
 
-> Esta plataforma corresponde a la Fase 1 del proyecto de Cálculo Integral. Está construida con HTML, CSS y JavaScript; utiliza KaTeX para fórmulas y Plotly para las gráficas interactivas.
+## 2. Recorrido Rápido por Métodos Numéricos (Módulos 1 al 6) (1.5 minutos)
 
-Señale el título, el distintivo **Fase 1** y el menú lateral.
+- **Módulo 1 (Sumas de Riemann):** Muestra cómo al variar \(n\) de 4 a 12 los rectángulos de punto medio convergen al valor exacto \(8/3 \approx 2.6667\).
+- **Módulos 2 al 4 (Trapecio, Punto Medio y Simpson):** Explica brevemente la diferencia entre aproximación lineal y parabólica.
+- **Módulos 5 y 6 (Área bajo la curva e Integración directa):** Aplicación directa del Teorema Fundamental del Cálculo.
 
-### 2. Explicar la organización — 1 minuto
+---
 
-1. Muestre el menú lateral.
-2. Explique que existen **14 módulos**, uno por cada contenido del taller.
-3. Indique que los módulos 1 a 6 están desarrollados en esta fase.
-4. Haga clic en un módulo posterior, por ejemplo **Exponenciales**, para enseñar el mensaje “Próximamente — Fase 2”.
-5. Regrese a **Módulo 1 — Sumas de Riemann**.
+## 3. Demostración de Técnicas Avanzadas de Integración (Módulos 7 al 9) (2 minutos)
 
-Puede decir:
+### Módulo 7: Integración Trigonométrica
+- Muestra la demostración de:
+  $$\int \operatorname{sen}^{3}(2x)\cos^{4}(2x) dx = -\frac{\cos^5(2x)}{10} + \frac{\cos^7(2x)}{14} + C$$
+- Explica los 4 pasos: separación de potencia impar, identidad pitagórica, cambio de variable \(u = \cos(2x)\) y retorno a \(x\).
+- Muestra la gráfica comparativa y los comandos GeoGebra vinculados.
 
-> La arquitectura está preparada para crecer: cada módulo tiene su propia ruta y los contenidos posteriores ya están reservados sin romper la navegación.
+### Módulo 8: Sustitución Trigonométrica
+- Muestra el selector con los 5 ejercicios del taller (formas \(\sqrt{a^2-x^2}\), \(\sqrt{x^2+a^2}\)).
+- Destaca cómo el software dibuja tanto la curva original como la antiderivada.
 
-### 3. Demostración principal: módulo 1 — 2 a 3 minutos
+### Módulo 9: Sustitución Universal (Weierstrass)
+- Explica la utilidad de la transformación \(z = \tan(x/2)\) para convertir integrales racionales trigonométricas en fracciones algebraicas simples.
+- Muestra cualquiera de los 6 ejercicios resueltos paso a paso.
 
-#### Contexto matemático
+---
 
-Lea o explique brevemente la fórmula mostrada. La idea central es aproximar una integral definida mediante rectángulos.
+## 4. Demostración Principal: Áreas y Sólidos de Revolución (Módulos 10 al 14) (3 minutos)
 
-> Para aproximar el área bajo una curva, dividimos el intervalo en subintervalos. A mayor número de subintervalos, normalmente obtenemos una aproximación más cercana al valor exacto.
+Esta es la sección más visual y de mayor impacto técnico:
 
-#### Ejemplo: aproximar \(\int_0^2 x^2\,dx\)
+### Módulo 10: Áreas de Regiones Planas
+- Selecciona el **Ejercicio 2** (\(x = \sqrt{y}\), \(x = 2-y\), \(y = 0\)).
+- Explica por qué es más sencillo integrar respecto a \(y\) (franjas horizontales) desde \(y = 0\) hasta \(y = 1\), obteniendo \(5/6 \text{ u}^2\).
+- Señala el gráfico con la región delimitada sombreada en azul.
 
-1. En el panel **Explorador: \(f(x)=x^2\)**, confirme los valores:
-   - Subintervalos `n = 4`
-   - Límite inferior `a = 0`
-   - Límite superior `b = 2`
-2. Pulse **Actualizar visualización**.
-3. Señale los rectángulos y la curva azul de la gráfica.
-4. Lea el resultado mostrado debajo de los controles.
+### Módulo 11: Sólidos con Sección Conocida (Visualización 3D)
+- Selecciona el **Ejercicio 1** (base circular \(x^2+y^2=1\) con secciones transversales que son triángulos equiláteros).
+- Rota el gráfico 3D con el ratón para mostrar la forma del prisma curvo.
+- Explica la fórmula \(A(x) = \sqrt{3}(1-x^2)\) y el volumen obtenido: \(\frac{4\sqrt{3}}{3} \text{ u}^3\).
 
-Explicación sugerida:
+### Módulos 12, 13 y 14: Sólidos de Revolución (Discos, Arandelas y Capas Cilíndricas)
+1. **Módulo 12 (Discos):**
+   - Región \(y = 2-x^2\) girando alrededor de la recta \(y = 1\).
+   - Volumen: \(\frac{16\pi}{15} \text{ u}^3\).
+   - Muestra el modelo 3D de revolución completa rotando sobre el eje dorado \(y = 1\).
+2. **Módulo 13 (Arandelas):**
+   - Región \(y = 4-x^2\) girando alrededor de \(y = 7\).
+   - Volumen: \(\frac{576\pi}{5} \text{ u}^3\).
+   - Rota el modelo 3D para enseñar la superficie externa y la cavidad o túnel interno generado.
+3. **Módulo 14 (Capas Cilíndricas):**
+   - Misma región base girando alrededor del eje vertical \(x = 3\).
+   - Volumen: \(64\pi \text{ u}^3\).
+   - Explica cómo el método de capas cilíndricas evita despejar raíces complicadas integrando franjas verticales paralelas al eje de giro.
 
-> El programa usa \(f(x)=x^2\) en el intervalo de 0 a 2. Con cuatro subintervalos, el ancho es \(\Delta x=(2-0)/4=0.5\). El software evalúa los puntos medios, suma las áreas de los rectángulos y muestra la aproximación. También compara el resultado con el valor exacto \(8/3\), obtenido por integración directa.
+---
 
-5. Cambie `n` de `4` a `12` y pulse nuevamente **Actualizar visualización**.
-6. Compare visualmente los rectángulos: ahora son más angostos y se ajustan mejor a la curva.
+## 5. Cierre Técnico (30 segundos)
 
-Conclusión sugerida:
+> *"Como conclusión, la plataforma no solo automatiza la verificación numérica de los ejercicios propuestos en el taller y parcial, sino que proporciona una herramienta didáctica e interactiva mediante modelos paramétricos 3D en WebGL y fórmulas tipográficas con KaTeX. Todo el código se encuentra versionado en Git y listo para su consulta y despliegue."*
 
-> Este control permite observar la convergencia: al aumentar \(n\), la aproximación numérica se acerca al resultado de la integral definida.
+---
 
-### 4. Recorrido rápido por otros módulos — 1 a 2 minutos
+## Lista de Comprobación para la Grabación
 
-Haga clic en los módulos 2, 4, 5 y 6, explicando una idea por pantalla:
-
-- **Trapecio:** reemplaza los rectángulos por trapecios construidos sobre la curva.
-- **Simpson:** usa parábolas y exige un número par de subintervalos.
-- **Integral definida y área:** permite ajustar los límites de integración y visualizar el área bajo \(f(x)=x^2\). Mencione que el ejemplo explica además el área entre \(y=x^2\) y \(y=2x\).
-- **Integración directa:** relaciona la función con una antiderivada; cambie el selector para mostrar un caso diferente.
-
-### 5. Cierre técnico — 45 segundos
-
-Puede decir:
-
-> Separé la interfaz en HTML, los estilos responsive en CSS y los cálculos con gráficas en JavaScript. Plotly genera los visualizadores y KaTeX presenta las fórmulas. La plataforma está lista para continuar con los módulos de las Fases 2 y 3, y puede desplegarse con GitHub Pages.
-
-## Recomendaciones para el video
-
-- Aparezca en cámara durante la presentación inicial.
-- Comparta pantalla con el navegador a una resolución legible.
-- No memorice el texto literalmente: use esta guía como estructura.
-- Muestre al menos un cambio real de valor, por ejemplo `n=4` a `n=12`.
-- Explique qué representa el resultado matemático; no se limite a presionar botones.
-- Cierre indicando cómo esta Fase 1 se conecta con los módulos futuros.
-
-## Lista de comprobación previa
-
-- [ ] Live Server abierto y URL local funcionando.
-- [ ] Internet disponible para Plotly y KaTeX.
-- [ ] Módulo 1 listo en pantalla.
-- [ ] Ejemplo \(a=0\), \(b=2\), \(n=4\) preparado.
-- [ ] README disponible para mostrar arquitectura y herramientas.
-- [ ] Enlace de GitHub Pages preparado si ya existe el despliegue.
-
+- [ ] Abrir el proyecto en el navegador vía Live Server (`http://127.0.0.1:5500/dist/index.html`).
+- [ ] Verificar conexión a internet para cargar KaTeX y Plotly.
+- [ ] Probar la rotación de los modelos 3D con el ratón antes de grabar.
+- [ ] Mantener un tono claro, pausado y seguro.

@@ -1,101 +1,86 @@
-# Plataforma web de Cálculo Integral — Fase 1
+# Plataforma web de Cálculo Integral — Hasta Sólidos de Revolución
 
-Plataforma web interactiva desarrollada como apoyo para la evaluación parcial de Cálculo Integral del programa de Tecnología en Desarrollo de Software. Esta primera fase articula métodos numéricos, área bajo la curva e integración directa mediante explicaciones, ejemplos y visualizaciones.
+Plataforma web interactiva desarrollada para el aprendizaje y evaluación de Cálculo Integral en el programa de Tecnología en Desarrollo de Software (Universidad Tecnológica de Pereira). El proyecto articula métodos numéricos, integración analítica, cálculo de áreas y volúmenes de sólidos de revolución mediante explicaciones paso a paso, comandos GeoGebra y visualizaciones interactivas en 2D y 3D.
 
-> Importante: el taller de cálculo debe resolverse manualmente. Esta plataforma corresponde únicamente al componente de desarrollo de software.
+> **Nota:** La resolución manual sigue siendo indispensable. Esta plataforma corresponde al componente de software, visualización y análisis computacional.
 
-## Objetivo
+---
 
-Construir una base modular de 14 contenidos que pueda crecer durante el semestre. En esta entrega se desarrollan los módulos 1 a 6 y se reservan los módulos 7 a 14 para las siguientes fases.
+## Módulos Desarrollados (14 de 14)
 
-## Módulos
+Todos los 14 módulos se encuentran completamente implementados y funcionales:
 
-| Módulo | Tema | Estado en Fase 1 |
-|---:|---|---|
-| 1 | Sumas de Riemann | Desarrollado |
-| 2 | Regla del Trapecio | Desarrollado |
-| 3 | Regla del Punto Medio | Desarrollado |
-| 4 | Regla de Simpson | Desarrollado |
-| 5 | Integral definida y área bajo la curva | Desarrollado |
-| 6 | Integración directa | Desarrollado |
-| 7–10 | Sustitución, exponenciales, logarítmicas y trigonométricas | Próximamente — Fase 2 |
-| 11–14 | Trigonométricas inversas, hiperbólicas inversas, trinomios y partes | Próximamente — Fase 3 |
+| Módulo | Tema | Enfoque y Contenido | Estado |
+|---:|---|---|:---:|
+| 1 | Sumas de Riemann | Aproximaciones izquierda, derecha y punto medio con rectángulos | **Completo** |
+| 2 | Regla del Trapecio | Integración numérica aproximando curvas con segmentos lineales | **Completo** |
+| 3 | Regla del Punto Medio | Evaluación en centros de subintervalos para curvas suaves | **Completo** |
+| 4 | Regla de Simpson | Ponderación parabólica con número de intervalos par | **Completo** |
+| 5 | Integral definida y área | Teorema Fundamental del Cálculo y área bajo la curva | **Completo** |
+| 6 | Integración directa | Antiderivadas polinomiales, racionales y radicales | **Completo** |
+| 7 | Integración Trigonométrica | Potencias impares/pares de senos y cosenos (\(\int \operatorname{sen}^3(2x)\cos^4(2x)dx\)) | **Completo** |
+| 8 | Sustitución Trigonométrica | Formas radicales (\(\sqrt{a^2-x^2}, \sqrt{x^2+a^2}\)) con 5 ejercicios del taller | **Completo** |
+| 9 | Sustitución Universal | Transformación de Weierstrass (\(z = \tan(x/2)\)) con 6 ejercicios resueltos | **Completo** |
+| 10 | Áreas de Regiones Planas | Integración respecto a \(x\) y respecto a \(y\), intersecciones y simetría | **Completo** |
+| 11 | Sólidos con Sección Conocida | Secciones perpendiculares equiláteras y cuadradas con **visualizador 3D** | **Completo** |
+| 12 | Sólidos de Revolución · Discos | Rotación de \(y = 2-x^2\) alrededor de \(y = 1\) con **gráfico 3D rotatorio** | **Completo** |
+| 13 | Sólidos de Revolución · Arandelas | Rotación de \(y = 4-x^2\) alrededor de \(y = 7\) con hueco interior en 3D | **Completo** |
+| 14 | Sólidos de Revolución · Capas | Método de cascarones cilíndricos con giro en torno al eje vertical \(x = 3\) | **Completo** |
 
-## Funcionalidades implementadas
+---
 
-- Navegación a los 14 módulos mediante rutas independientes.
-- Diseño adaptable para computador, tableta y celular.
-- Renderizado de expresiones matemáticas con KaTeX.
-- Visualizadores interactivos de Riemann, trapecio, punto medio y Simpson.
-- Ajuste de límites y gráfica del área bajo la curva.
-- Ejemplos resueltos paso a paso para los módulos de Fase 1.
-- Gráficas comparativas de una función y su antiderivada.
-- Páginas placeholder para los módulos aún no desarrollados.
+## Funcionalidades Principales
 
-## Arquitectura del proyecto
+- **Cobertura completa del taller y parcial (Docier Marino Ceballos):** Cada módulo incluye los enunciados exactos, demostraciones algebraicas paso a paso y resultados analíticos finales.
+- **Comandos GeoGebra 2D y 3D:** Códigos listos para copiar y ejecutar en GeoGebra Classic / GeoGebra 3D (`Curva`, `Superficie`, `IntegralEntre`, etc.).
+- **Visualizadores 3D interactivos:** Superficies tridimensionales rotables en tiempo real generadas con Plotly (WebGL) para secciones transversales y sólidos de revolución (Discos, Arandelas, Capas Cilíndricas).
+- **Renderizado de fórmulas con KaTeX:** Notación matemática tipográfica de alta fidelidad.
+- **Diseño responsive con modo oscuro:** Adaptado a pantallas móviles, tabletas y ordenadores de escritorio.
+
+---
+
+## Arquitectura del Proyecto
 
 ```text
-plataforma-calculo-fase1/
+plataforma-calculo-integral-fase1/
 ├─ dist/
-│  ├─ index.html                 # Interfaz principal
-│  ├─ styles.css                 # Estilos responsive en modo oscuro
-│  ├─ app.js                     # Lógica, cálculos y visualizaciones
+│  ├─ index.html                 # Interfaz principal unificada
+│  ├─ styles.css                 # Estilos en modo oscuro, cajas GeoGebra y diseño responsive
+│  ├─ app.js                     # Controlador general, cálculos, lógica analítica y visualizaciones 2D/3D
 │  └─ modulos/
-│     ├─ modulo-1/index.html     # Sumas de Riemann
+│     ├─ modulo-1/index.html     # Ruta directa Módulo 1 (Sumas de Riemann)
 │     ├─ ...
-│     └─ modulo-14/index.html    # Integración por partes
+│     └─ modulo-14/index.html    # Ruta directa Módulo 14 (Capas Cilíndricas)
 ├─ .openai/hosting.json          # Configuración de sitio estático
-└─ README.md
+├─ GUIA_SUSTENTACION.md          # Guía para sustentación o video expositivo
+└─ README.md                     # Documentación técnica
 ```
 
-Las rutas de cada módulo cargan la interfaz principal con el contenido correspondiente. Esta decisión mantiene una experiencia visual consistente mientras permite ampliar cada módulo sin alterar la navegación general.
+---
 
-## Tecnologías utilizadas
+## Tecnologías Utilizadas
 
-| Herramienta | Uso en el proyecto |
+| Herramienta | Aplicación |
 |---|---|
-| HTML5 | Estructura y contenido de la interfaz |
-| CSS3 | Diseño responsive, modo oscuro y accesibilidad visual |
-| JavaScript | Navegación, cálculos y actualización dinámica de resultados |
-| Plotly.js | Gráficas y visualizaciones interactivas |
-| KaTeX | Renderizado de fórmulas matemáticas |
-| Google Colab | Espacio sugerido para documentar pruebas numéricas con Python |
-| GitHub / GitHub Pages | Control de versiones y despliegue propuesto |
+| HTML5 / CSS3 | Interfaz semántica, layout responsive y diseño moderno |
+| JavaScript (ES6+) | Lógica de cálculo, transformaciones paramétricas y parametrización de superficies 3D |
+| Plotly.js | Renderizado de gráficas interactivas 2D y superficies 3D (WebGL) |
+| KaTeX | Renderizado dinámico de fórmulas matemáticas y demostraciones |
+| Git & GitHub | Control de versiones y despliegue continuo en GitHub Pages |
 
-## Ejecución local
+---
 
-1. Abra esta carpeta en Visual Studio Code.
-2. Instale la extensión **Live Server**.
-3. Abra `dist/index.html`.
-4. Seleccione **Go Live** o **Open with Live Server**.
-5. Visite la dirección local indicada por la extensión, normalmente `http://127.0.0.1:5500/dist/index.html`.
+## Ejecución Local
 
-Se requiere conexión a internet para cargar Plotly.js y KaTeX desde sus CDN.
+1. Abre esta carpeta en Visual Studio Code.
+2. Inicia con la extensión **Live Server** abriendo el archivo `dist/index.html`.
+3. Navega por los 14 módulos directamente desde el menú lateral o seleccionando cada tema.
+
+---
 
 ## Despliegue en GitHub Pages
 
-1. Cree un repositorio en GitHub y suba el contenido de esta carpeta.
-2. En GitHub, abra **Settings → Pages**.
-3. Elija la rama `main` y la carpeta `/dist` como origen de publicación.
-4. Guarde los cambios y espere la URL pública de GitHub Pages.
-5. Incluya esa URL en la entrega de Google Classroom.
-
-## Contribución y mantenimiento
-
-1. Cree una rama por módulo o mejora.
-2. Mantenga la lógica matemática documentada en `app.js`.
-3. Pruebe los controles, la visualización y el diseño responsive antes de integrar cambios.
-4. Conserve las fórmulas en notación KaTeX cuando se añadan nuevos contenidos.
-5. Actualice esta documentación cuando se desarrolle un módulo de Fase 2 o Fase 3.
-
-## Uso de IA y trazabilidad
-
-La evaluación permite el uso de IA en el componente de software, siempre que se documente. Para esta plataforma se utilizaron herramientas de asistencia de programación para estructurar HTML, CSS, JavaScript, visualizaciones y documentación. Antes de entregar, el estudiante debe revisar el código, comprender los cálculos y registrar cualquier herramienta adicional utilizada.
-
-## Entregables asociados
-
-- Enlace al repositorio GitHub.
-- Enlace a la aplicación desplegada en GitHub Pages u otra plataforma.
-- README con arquitectura y guía de contribución.
-- Video de sustentación de 5 a 10 minutos, mostrando la navegación, los módulos desarrollados y las decisiones técnicas.
-
+1. Sube los cambios a la rama principal (`main`).
+2. En GitHub ve a **Settings → Pages**.
+3. Selecciona la rama `main` y la carpeta `/dist`.
+4. La plataforma quedará pública automáticamente en la URL proporcionada por GitHub.
