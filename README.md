@@ -1,6 +1,6 @@
-# Plataforma web de Cálculo Integral — Hasta Sólidos de Revolución
+# Plataforma de Cálculo Integral y Modelado Geométrico
 
-Plataforma web interactiva desarrollada para el aprendizaje y evaluación de Cálculo Integral en el programa de Tecnología en Desarrollo de Software (Universidad Tecnológica de Pereira). El proyecto articula métodos numéricos, integración analítica, cálculo de áreas y volúmenes de sólidos de revolución mediante explicaciones paso a paso, comandos GeoGebra y visualizaciones interactivas en 2D y 3D.
+Plataforma interactiva desarrollada para el análisis y evaluación de Cálculo Integral en el programa de Tecnología en Desarrollo de Software (Universidad Tecnológica de Pereira). El proyecto articula métodos numéricos, integración analítica, cálculo de áreas y volúmenes de sólidos tridimensionales mediante formulación rigurosa, desarrollo analítico y visualizaciones interactivas en 2D y 3D.
 
 > **Nota:** La resolución manual sigue siendo indispensable. Esta plataforma corresponde al componente de software, visualización y análisis computacional.
 

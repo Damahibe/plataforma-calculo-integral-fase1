@@ -23,7 +23,7 @@ function nav() {
   $('#moduleNav').innerHTML = modules.map((m, i) => `
     <a class="module ${i === current ? 'active' : ''}" style="text-decoration:none" href="modulos/modulo-${i + 1}/index.html">
       ${i + 1}. ${m[0]}
-      <small>Disponible · Interactivo</small>
+      <small>Módulo Activo · Interactivo</small>
     </a>
   `).join('');
 }
