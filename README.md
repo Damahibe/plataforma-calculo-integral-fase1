@@ -52,7 +52,6 @@ plataforma-calculo-integral-fase1/
 │     ├─ ...
 │     └─ modulo-14/index.html    # Ruta directa Módulo 14 (Capas Cilíndricas)
 ├─ .openai/hosting.json          # Configuración de sitio estático
-├─ GUIA_SUSTENTACION.md          # Guía para sustentación o video expositivo
 └─ README.md                     # Documentación técnica
 ```
 
