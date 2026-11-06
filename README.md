@@ -56,7 +56,6 @@ plataforma-calculo-integral-fase1/
 │     ├─ modulo-1/index.html     # Ruta directa Módulo 1
 │     ├─ ...
 │     └─ modulo-14/index.html    # Ruta directa Módulo 14
-├─ .openai/hosting.json          # Configuración de sitio estático
 └─ README.md                     # Documentación técnica
 ```
 
